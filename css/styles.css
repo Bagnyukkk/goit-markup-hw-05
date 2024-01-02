@@ -678,13 +678,17 @@ width: 100%;
 
 
 .modal {
-   position: relative;
+   position: absolute;
    width: 408px;
    min-height: 584px;
    border-radius: 4px;
    background-color: #FCFCFC;
    padding: 72px 24px 24px;
-   
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(1);
+   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.2);
+   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .modal-btn {
@@ -697,20 +701,29 @@ justify-content: center;
 width: 24px;
 height: 24px;
 color: #2E2F42;
+padding: 0;
 background-color: #E7E9FC;
   border-radius: 50%; 
-   border: 1px solid rgba(0, 0, 0, 0.10);
-   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
 .modal-bnt-icon {
    fill: currentColor;
+   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-btn:active {
+.modal-bnt-icon:focus,
+.modal-bnt-icon:hover {
+fill: #FFFFFF;
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
    background-color: #404BBF;
    color: #FFFFFF;
+   border: none;
 }
 
 .modal-caption {
@@ -735,7 +748,8 @@ background-color: #E7E9FC;
    font-style: normal;
    font-weight: 400;
    line-height: 1.17;
-   letter-spacing: 0.03em;
+   letter-spacing: 0.04em;
+
 }
 
 textarea::placeholder {
@@ -765,6 +779,7 @@ position: relative;
    padding-left: 38px;
    outline: transparent;
    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   background-color: transparent;
 
 }
 
@@ -788,19 +803,21 @@ fill: #4D5AE5;
 
  .form-message {
       width: 100%;
+      height: 120px;
       resize: none;
-      padding-top: 8px;
-      padding-left: 16px;
+      padding: 8px 16px;
       font-family: Roboto;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: 1.17;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       border-radius: 4px;
-      border: 1px solid rgba(46, 47, 66, 0.40);
+      border: 1px solid rgba(46, 47, 66, 0.4);
       outline: transparent;
+      color: rgba(46, 47, 66, 0.4);
       transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: transparent;
  }
 
  .form-wraper-text {
@@ -809,7 +826,7 @@ fill: #4D5AE5;
 
  .form-message:focus {
    border-radius: 4px;
-      border: 1px solid #4D5AE5;
+      border-color: #4D5AE5;
  }
 
  .form-message::placeholder {
@@ -818,16 +835,19 @@ fill: #4D5AE5;
 
  /* custom checkbox */
 
+ .checkbox-container {
+   margin-bottom: 24px;
+ }
+
  .form-agreement {
    display: block;
-   margin-bottom: 24px;
    color: #8E8F99;
    font-family: Roboto;
    font-size: 12px;
    font-style: normal;
    font-weight: 400;
    line-height: 1.17;
-   letter-spacing: 0.03em;
+   letter-spacing: 0.04em;
    user-select: none;
  }
 
@@ -842,9 +862,11 @@ fill: #4D5AE5;
    width: 16px;
    height: 16px;
    border-radius: 2px;
-      border: 1px solid rgba(46, 47, 66, 0.40);
-      cursor: pointer;
-      margin-right: 8px;
+   border: 1px solid rgba(46, 47, 66, 0.40);
+   cursor: pointer;
+   margin-right: 8px;
+   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   fill: transparent;
  }
 
  .form-agreement-icon {
@@ -865,7 +887,9 @@ fill: #4D5AE5;
 
  .checkbox:checked + .form-agreement-checkbox {
    background-color: #404BBF;
-   border: #404BBF;
+   border: none;
+   fill: #F4F4FD;
+   
  }
 
  .checkbox:checked+.form-agreement-checkbox > .form-agreement-icon {
@@ -883,6 +907,9 @@ fill: #4D5AE5;
    justify-content: center;
    min-width: 169px;
    min-height: 56px;
+   font-weight: 500;
+   line-height: 1.5;
+   letter-spacing: 0.04em;
 
 
    margin-left: auto;
@@ -928,7 +955,7 @@ fill: #4D5AE5;
       width: 264px;
       height: 40px;
       outline: transparent;
-      background-color: #2E2F42;
+      background-color: transparent;
       padding: 8px 16px;
       color: #FFF;
          font-family: Roboto;
@@ -948,7 +975,7 @@ input.subscribe-form-input::placeholder {
 .subscribe-form-btn {
    color: #FFF;
    text-align: center;
-   font-family: Roboto;
+   font-family: "Roboto";
    font-size: 16px;
    font-style: normal;
    font-weight: 500;
@@ -963,10 +990,13 @@ input.subscribe-form-input::placeholder {
       fill: #FFFFFF; 
       border: none;
       transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 165px;
+      min-width: 165px;
 }
 
 .subscribe-form-icon {
    fill: currentColor;
+   margin-left: 16px;
 }
 
 .subscribe-form-btn:focus,
