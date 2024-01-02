@@ -885,15 +885,18 @@ fill: #4D5AE5;
    text-decoration-line: underline;
  }
 
- .checkbox:checked + .form-agreement-checkbox {
-background-color: #404BBF;
-   border: none;
-   fill: #F4F4FD;
+ .checkbox:checked+.form-agreement-checkbox {
    
  }
 
- .checkbox:checked+.form-agreement-checkbox > .form-agreement-icon {
+ .checkbox:checked + .form-agreement-checkbox > .form-agreement-icon {
    opacity: 1;
+ }
+
+ .checkbox:checked + .form-agreement > .form-agreement-checkbox {
+   background-color: #404BBF;
+      border: none;
+      fill: #F4F4FD;
  }
 
  .modal-button {
