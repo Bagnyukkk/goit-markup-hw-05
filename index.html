@@ -412,7 +412,7 @@
     </div>
   </footer>
 
-  <div class="backdrop">
+  <div class="backdrop is-open">
     <div class="modal">
       <button class="modal-btn" type="button" aria-label="Modal close button">
         <svg class="modal-bnt-icon" width="8" height="8">
@@ -457,15 +457,19 @@
 
         </div>
         <div class="checkbox-container">
-          <input class="checkbox visually-hidden" type="checkbox" name="user-privacy" id="user-privacy" value="true">
+
 
           <label for="user-privacy" class="form-agreement">
-            <span class="form-agreement-checkbox">
-              <svg class="form-agreement-icon" width="10" height="8">
-                <use href="./images/icons.svg#icon-Vector"></use>
-              </svg>
-            </span>
-            I accept the terms and conditions of the <a class="form-agreement-link" href="">Privacy Policy</a>
+            <div class="checkbox-container">
+              <input class="checkbox visually-hidden" type="checkbox" name="user-privacy" id="user-privacy" value="true"
+                checked>
+
+              <span class="form-agreement-checkbox">
+                <svg class="form-agreement-icon" width="10" height="8">
+                  <use href="./images/icons.svg#icon-Vector"></use>
+                </svg>
+              </span>
+              I accept the terms and conditions of the <a class="form-agreement-link" href="">Privacy Policy</a>
           </label>
         </div>
         <button class="modal-button" type="submit">Send</button>

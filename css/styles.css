@@ -886,7 +886,7 @@ fill: #4D5AE5;
  }
 
  .checkbox:checked + .form-agreement-checkbox {
-   background-color: #404BBF;
+background-color: #404BBF;
    border: none;
    fill: #F4F4FD;
    
